@@ -83,7 +83,9 @@ class SearchSession:
 
         configured = provider if provider is not None else os.getenv("VISUAL_ARFT_SEARCH_PROVIDER")
         if configured is None:
-            configured = "serper" if os.getenv("SERPER_API", "").strip() else "parallel"
+            serper_key = os.getenv("SERPER_API", "").strip()
+            # The tracked .env ships this dummy value; it is not a configured key.
+            configured = "serper" if serper_key and serper_key != "x" * 25 else "parallel"
         self.provider = configured.strip().lower()
         if self.provider not in ("parallel", "serper", "ddg", "disabled"):
             raise ValueError("Search provider must be parallel, serper, ddg, or disabled")

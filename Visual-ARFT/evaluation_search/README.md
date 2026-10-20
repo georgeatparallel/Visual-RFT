@@ -19,7 +19,8 @@ Qwen2.5-VL inference environment, from this directory:
 python -m pip install -r requirements-search.txt
 ```
 
-An existing `SERPER_API` environment variable or `.env` key keeps Serper selected.
+A real `SERPER_API` environment variable or `.env` key keeps Serper selected.
+The dummy `xxxxxxxxxxxxxxxxxxxxxxxxx` value shipped in `.env` is treated as unconfigured.
 To reproduce the paper's Serper-based evaluation, set that key and use Serper.
 Search providers can return different evidence, so changing providers can change
 benchmark results. The original Serper and DuckDuckGo helper functions remain
